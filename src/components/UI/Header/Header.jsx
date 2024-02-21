@@ -34,7 +34,7 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed w-full h-[80px] flex justify-between items-center gap-8 px-[6%] py-4 border-b border-[#d3d3d3] z-50">
+    <header className="fixed w-full h-[80px] flex justify-between items-center gap-8 px-[6%] py-4 border-b border-[#d3d3d3] z-99">
       <div className="flex items-center gap-4 ">
         <Link href={"/"}>
           <Image src={Logo} alt="Paragraf logo" />
