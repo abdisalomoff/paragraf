@@ -58,7 +58,7 @@ export default function Header() {
             </button>
         </div>
         {input.trim() && (
-          <ul className="bg-yellow-700 absolute top-20 w-[600px]">
+          <ul className="bg-slate-50 text-black absolute top-20 w-[550px] rounded-lg outline-none p-3" >
             {results.map((result, index) => (
               <li key={index}>{result.title}</li>
             ))}
