@@ -49,7 +49,7 @@ export default function Header() {
           onClick={() => setOpenCategories(!openCategories)}
           className="flex gap-3 py-2 px-4 bg-[#FF9910] rounded-lg text-white"
         >
-           {openCategories ? <CloseRoundedIcon /> : <MenuRoundedIcon />}
+           {openCategories ? <CloseRoundedIcon  /> : <MenuRoundedIcon />}
           Категории
         </button>
         <div className="flex-col w-[600px]">
