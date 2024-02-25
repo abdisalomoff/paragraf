@@ -4,11 +4,12 @@ import DiamondRoundedIcon from "@mui/icons-material/DiamondRounded";
 import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import FoodBankOutlinedIcon from "@mui/icons-material/FoodBankOutlined";
 import ChairOutlinedIcon from "@mui/icons-material/ChairOutlined";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
-import WomanIcon from "@mui/icons-material/Woman";
-import IceSkatingIcon from "@mui/icons-material/IceSkating";
-import ManIcon from "@mui/icons-material/Man";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import AirlineStopsOutlinedIcon from '@mui/icons-material/AirlineStopsOutlined';
+import Woman2OutlinedIcon from '@mui/icons-material/Woman2Outlined';
+import FemaleOutlinedIcon from '@mui/icons-material/FemaleOutlined';
+import ManOutlinedIcon from '@mui/icons-material/ManOutlined';
+
 
 const ProductsCategoriesList = [
     {
@@ -264,7 +265,7 @@ const ProductsCategoriesList = [
     },
     {
       categories: "Home Decoration",
-      icon: ChairOutlinedIcon,
+      icon: HomeOutlinedIcon,
       subcategories: [
         {
           title: "Candles",
@@ -308,7 +309,7 @@ const ProductsCategoriesList = [
   
     {
       categories: "Furniture",
-      icon: AutoAwesomeRoundedIcon,
+      icon: ChairOutlinedIcon,
       subcategories: [
         {
           title: "Living Room Furniture",
@@ -347,7 +348,7 @@ const ProductsCategoriesList = [
     },
     {
       categories: "Tops",
-      icon: AutoAwesomeRoundedIcon,
+      icon: AirlineStopsOutlinedIcon,
       subcategories: [
         {
           title: "T-Shirts",
@@ -414,7 +415,7 @@ const ProductsCategoriesList = [
     },
     {
       categories: "Womens Dresses",
-      icon: AutoAwesomeRoundedIcon,
+      icon: Woman2OutlinedIcon,
       subcategories: [
         {
           title: "Casual Dresses",
@@ -450,7 +451,7 @@ const ProductsCategoriesList = [
   
     {
       categories: "Womens Shoes",
-      icon: AutoAwesomeRoundedIcon,
+      icon: FemaleOutlinedIcon ,
       subcategories: [
         {
           title: "Sneakers",
@@ -477,7 +478,7 @@ const ProductsCategoriesList = [
     },
     {
       categories: "Mens Shirts",
-      icon: AutoAwesomeRoundedIcon,
+      icon: ManOutlinedIcon,
       subcategories: [
         {
           title: "Casual Shirts",
