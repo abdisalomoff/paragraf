@@ -4,21 +4,21 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ProductsCategoriesList from "./ProductsCategoriesList";
 
 export default function Categories() {
-  const [categoriesActive, setCategoriesActive] = useState("");
+  const [categoriesChange, setCategoriesChange] = useState("");
   const [subcategories, setSubcategories] = useState([]);
 
   useEffect(() => {
     handleCategoriesMouseEnter();
-  }, [categoriesActive]);
+  }, [categoriesChange]);
 
-  const handleCategoriesMouseEnter = (categories = categoriesActive) => {
-    setCategoriesActive(categories);
+  const handleCategoriesMouseEnter = (categories = categoriesChange) => {
+    setCategoriesChange(categories);
 
-    const filteredCategories = ProductsCategoriesList.find(
-      (el) => el.categories === categories
+    const filterCategories = ProductsCategoriesList.find(
+      (item) => item.categories === categories
     );
-    if (filteredCategories) {
-      setSubcategories(filteredCategories.subcategories);
+    if (filterCategories) {
+      setSubcategories(filterCategories.subcategories);
     } else {
       setSubcategories([]);
     }
@@ -30,15 +30,15 @@ export default function Categories() {
     >
       <div className="scrollbar w-3/12 h-full flex flex-col items-start justify-start gap-4 p-4 overflow-auto bg-[#F5F5F5]">
         <ul className="w-full">
-          {ProductsCategoriesList.map((el, index) => (
+          {ProductsCategoriesList.map((item, index) => (
             <li
               key={index}
-              onMouseEnter={() => handleCategoriesMouseEnter(el.categories)}
+              onMouseEnter={() => handleCategoriesMouseEnter(item.categories)}
               className={`p-4 pr-0 hover:bg-[#fff] rounded-lg`}
             >
               <Link href="/" className="w-full flex text-lg gap-4 font-medium">
-                {<el.icon fontSize="medium" />}
-                <p>{el.categories}</p>
+                {<item.icon fontSize="medium" />}
+                <p>{item.categories}</p>
                 <ChevronRightIcon className="ms-auto" />
               </Link>
             </li>
@@ -47,7 +47,7 @@ export default function Categories() {
       </div>
 
       <div className="scrollbar w-9/12 flex flex-col gap-8 p-4 overflow-y-auto ps-8 pt-8">
-        <h2 className="text-xl font-semibold">{categoriesActive}</h2>
+        <h2 className="text-xl font-semibold">{categoriesChange}</h2>
         <div className="grid grid-cols-4 gap-4">
           {subcategories.map((subcategories) => (
             <div className="flex flex-col gap-2">
