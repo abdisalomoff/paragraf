@@ -2,6 +2,7 @@
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Logo from "../../../../public/Logo.svg";
 import Balance from "../../../../public/icons/balance.svg";
 import ShoppingCart from "../../../../public/icons/cart.svg";
@@ -48,7 +49,7 @@ export default function Header() {
           onClick={() => setOpenCategories(!openCategories)}
           className="flex gap-3 py-2 px-4 bg-[#FF9910] rounded-lg text-white"
         >
-          <MenuRoundedIcon />
+           {openCategories ? <CloseRoundedIcon /> : <MenuRoundedIcon />}
           Категории
         </button>
         <div className="flex-col w-[600px]">
