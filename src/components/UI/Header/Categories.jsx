@@ -46,7 +46,7 @@ export default function Categories() {
             >
               <Link href="/" className="w-full flex text-base gap-4 font-medium">
                 <CategoryIcons category={category} />
-              <p>{category.charAt(0).toUpperCase() + category.slice(1)}</p>
+              <p className='ms-1'>{category.charAt(0).toUpperCase() + category.slice(1)}</p>
                 <ChevronRightIcon className="ms-auto" />
               </Link>
             </li>
