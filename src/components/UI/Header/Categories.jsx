@@ -1,44 +1,52 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ProductsCategoriesList from "./ProductsCategoriesList";
+import CategoryIcons from "./CategoryIcons"
 
 export default function Categories() {
+  const [categories, setCategories] = useState([]);
   const [categoriesChange, setCategoriesChange] = useState("");
   const [subcategories, setSubcategories] = useState([]);
 
   useEffect(() => {
-    handleCategoriesMouseEnter();
-  }, [categoriesChange]);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://dummyjson.com/products/categories');
+        setCategories(response.data);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
 
-  const handleCategoriesMouseEnter = (categories = categoriesChange) => {
-    setCategoriesChange(categories);
+    fetchData();
+  }, []); 
 
-    const filterCategories = ProductsCategoriesList.find(
-      (item) => item.categories === categories
-    );
-    if (filterCategories) {
-      setSubcategories(filterCategories.subcategories);
-    } else {
+  const handleCategoriesMouseEnter = async (category) => {
+    setCategoriesChange(category);
+
+    try {
+      const response = await axios.get(`https://dummyjson.com/products/category/${category}`);
+      setSubcategories(response.data.products);
+    } catch (error) {
+      console.error('Error fetching subcategories:', error);
       setSubcategories([]);
     }
   };
 
   return (
-    <div
-      className={`absolute top-[80px] right-0 left-0 w-full h-[600px] flex bg-white rounded-lg `}
-    >
+    <div className={`absolute top-[80px] right-0 left-0 w-full h-[600px] flex bg-white rounded-lg`}>
       <div className="scrollbar w-3/12 h-full flex flex-col items-start justify-start gap-4 p-4 overflow-auto bg-[#F5F5F5]">
         <ul className="w-full">
-          {ProductsCategoriesList.map((item, index) => (
+          {categories.map((category, index) => (
             <li
               key={index}
-              onMouseEnter={() => handleCategoriesMouseEnter(item.categories)}
+              onMouseEnter={() => handleCategoriesMouseEnter(category)}
               className={`p-4 pr-0 hover:bg-[#fff] rounded-lg`}
             >
-              <Link href="/" className="w-full flex text-lg gap-4 font-medium">
-                {<item.icon fontSize="medium" />}
-                <p>{item.categories}</p>
+              <Link href="/" className="w-full flex text-base gap-4 font-medium">
+                <CategoryIcons category={category} />
+              <p>{category.charAt(0).toUpperCase() + category.slice(1)}</p>
                 <ChevronRightIcon className="ms-auto" />
               </Link>
             </li>
@@ -47,23 +55,15 @@ export default function Categories() {
       </div>
 
       <div className="scrollbar w-9/12 flex flex-col gap-8 p-4 overflow-y-auto ps-8 pt-8">
-        <h2 className="text-xl font-semibold">{categoriesChange}</h2>
-        <div className="grid grid-cols-4 gap-4">
-          {subcategories.map((subcategories) => (
-            <div className="flex flex-col gap-2">
-              <h2 className="text-lg font-semibold">{subcategories.title}</h2>
-              <ul className="flex flex-col gap-2">
-                {subcategories.products.map((product, index) => (
-                  <li key={index} className="hover:text-[#FF9910]">
-                    <Link href="/">{product}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <h2 className="text-xl font-semibold">{categoriesChange.charAt(0).toUpperCase() + categoriesChange.slice(1)}</h2>
+        <ul className="grid grid-cols-3 gap-4">
+          {subcategories.map((product) => (
+            <li key={product.id} className="flex ">
+              <Link href="/" className="hover:text-[#FF9910] text-base">{product.title}</Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );
 }
-
