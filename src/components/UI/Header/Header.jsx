@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed w-full h-[80px] flex justify-between items-center gap-8 px-[6%] py-4 border-b border-[#d3d3d3] z-99">
+      <header className=" w-full h-[80px] flex justify-between items-center gap-8 px-20 py-4 border-b border-[#d3d3d3] z-9999 bg-white">
         <div className="flex items-center gap-4 ">
           <Link href={"/"}>
             <Image src={Logo} alt="Paragraf logo" />
@@ -78,10 +78,10 @@ export default function Header() {
             <Image className="mt-1" src={Balance} alt="balance" />
             Сравнение
           </div>
-          <div className="flex items-center flex-col">
+          <Link href="/favourites"  className="flex items-center flex-col">
             <FavoriteBorderIcon />
             Избранное
-          </div>
+          </Link>
           <div className="flex items-center flex-col">
             <Image src={ShoppingCart} alt="cart" />
             Корзина

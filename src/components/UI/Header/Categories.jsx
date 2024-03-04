@@ -15,7 +15,7 @@ export default function Categories() {
         const response = await axios.get('https://dummyjson.com/products/categories');
         setCategories(response.data);
       } catch (error) {
-        console.error('Error fetching categories:', error);
+        console.error(error);
       }
     };
 
@@ -29,13 +29,13 @@ export default function Categories() {
       const response = await axios.get(`https://dummyjson.com/products/category/${category}`);
       setSubcategories(response.data.products);
     } catch (error) {
-      console.error('Error fetching subcategories:', error);
+      console.error(error);
       setSubcategories([]);
     }
   };
 
   return (
-    <div className={`absolute top-[80px] right-0 left-0 w-full h-[600px] flex bg-white rounded-lg`}>
+    <div className={`absolute top-[80px] right-0 left-0 w-full h-screen flex bg-white rounded-lg z-50`}>
       <div className="scrollbar w-3/12 h-full flex flex-col items-start justify-start gap-4 p-4 overflow-auto bg-[#F5F5F5]">
         <ul className="w-full">
           {categories.map((category, index) => (
