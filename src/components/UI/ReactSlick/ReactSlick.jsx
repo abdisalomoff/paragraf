@@ -27,35 +27,35 @@ function SamplePrevArrow(props) {
 }
 
 
-const SwipperData = [
+const data = [
   {
     id: 1,
-    title: "Смартфоны в рассрочку",
+    title: "Смартфоны",
     bgImg: Ipad,
   },
   {
     id: 2,
-    title: "Смартфоны в рассрочку",
+    title: "Лаптоп",
     bgImg: Ipad,
   },
   {
     id: 3,
-    title: "Смартфоны в рассрочку",
+    title: "Iphone 15pro max",
     bgImg: Ipad,
   },
   {
     id: 4,
-    title: "Смартфоны в рассрочку",
+    title: "Xuawei",
     bgImg: Ipad,
   },
   {
     id: 5,
-    title: "Смартфоны в рассрочку",
+    title: "Artel",
     bgImg: Ipad,
   },
   {
     id: 6,
-    title: "Смартфоны в рассрочку",
+    title: "Samsung",
     bgImg: Ipad,
   },
 ];
@@ -105,16 +105,18 @@ function ReactSlick() {
   return (
     <section className="slider-container bg-white rounded-lg -z-10">
       <Slider {...settings}>
-        {SwipperData.map((swipper) => (
+        {data.map((swipper) => (
           <div key={swipper.id} className="flex justify-between h-[400px] px-8">
-            <div className="w-5/12 h-full flex flex-col justify-center items-start gap-6 px-16 py-4">
-              <h3 className="text-5xl font-bold">{swipper.title}</h3>
-              <p>Купить любимые смартфоны в рассрочку</p>
+            <div className="flex justify-between px-16 py-4">
+              <div className="flex  flex-col justify-center items-start gap-6">
+              <h3 className="text-5xl font-bold">{swipper.title} в рассрочку</h3>
+              <p>Купить любимые смартфоны</p>
               <button className="py-2 px-6 bg-[#FF9910] rounded-lg text-white cursor-pointer">
                 Смотреть все
               </button>
+              </div>
+              <Image src={Ipad} width={200} height={300} alt="picture"/>
             </div>
-            <Image src={Ipad} width={200} height={300} alt="picture"/>
           </div>
         ))}
       </Slider>
