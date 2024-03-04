@@ -1,5 +1,4 @@
-import FavouritePage from '@/components/Pages/FavouritePage/FavouritePage'
-import React from 'react'
+import FavouritePage from '../../components/pages/FavouritePage/FavouritePage'
 
 export default function index() {
   return (
