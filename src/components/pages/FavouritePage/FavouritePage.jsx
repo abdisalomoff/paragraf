@@ -32,7 +32,7 @@ export default function FavouritePage() {
     
     console.log(favouriteList);
   return (
-    <div className='flex flex-col gap-4 px-20 bg-[#F6F6F6] py-10'>
+    <section className='flex flex-col gap-4 px-20 bg-[#F6F6F6] py-10'>
             <h2 className='text-3xl font-medium'>Избранный</h2>
             <div className='flex items-start justify-between gap-4'>
                 <ul className='flex flex-col gap-2 w-72 bg-white rounded-lg shadow-md py-4 px-2'>
@@ -61,6 +61,6 @@ export default function FavouritePage() {
                     )}
                 </div>
             </div>
-        </div>
+        </section>
   );
 }
